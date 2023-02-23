@@ -62,6 +62,7 @@ def get_timezoneutc_endpoint():
                         "time": time})
         else:
             return jsonify({"error":"Unesi ispravno vreme."}) 
+        #s
         
 if __name__ == '__main__':
     app.run()
