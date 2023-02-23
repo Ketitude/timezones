@@ -55,8 +55,13 @@ def get_timezoneutc_endpoint():
                             "time": time})  
         elif hour<current_time_utc.hour and hour>0 and int(min)<60 and int(min)>0:
             hour=current_time_utc.hour-hour
-            utc='UTC: -'+str(hour)+':00'
-            time=hor+":"+min
+            if hour>12:
+                hour=-hour+24
+                utc='UTC: +'+str(hour)+':00'
+                time=hor+":"+min
+            else:
+                utc='UTC: -'+str(hour)+':00'
+                time=hor+":"+min
             
             return jsonify({"timezone":utc,
                         "time": time})
